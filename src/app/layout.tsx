@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Roboto_Serif } from "next/font/google";
 import "./globals.css";
+import Header from "@/header";
+import Footer from "@/footer";
+import RouteChangeLoader from "../components/RouteChangeLoader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -10,6 +13,11 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const robotoSerif = Roboto_Serif({
+  subsets: ['latin'],
+  variable: '--font-roboto-serif',
 });
 
 export const metadata: Metadata = {
@@ -25,9 +33,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${robotoSerif.variable} antialiased`}
       >
+        <RouteChangeLoader />
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
