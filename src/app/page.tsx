@@ -205,7 +205,7 @@ export default function Home() {
                   whileTap={{ scale: 0.95 }}
                   className="btn font-semibold text-sm md:text-base px-6 py-3 text-amber-800"
                 >
-                  Explore Rooms
+                  <p className="text-amber-800">Explore Rooms</p>
                 </motion.button>
               </Link>
             </StyledWrapper>
@@ -216,7 +216,7 @@ export default function Home() {
                   whileTap={{ scale: 0.95 }}
                   className="btn font-semibold text-sm md:text-base px-6 py-3 text-amber-800"
                 >
-                  Book Your Stay
+                  <p className="text-amber-800">Book Your Stay</p>
                 </motion.button>
               </Link>
             </StyledWrapper>
