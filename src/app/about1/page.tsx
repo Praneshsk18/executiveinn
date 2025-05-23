@@ -2,8 +2,9 @@
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef, useState } from "react";
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
 const images = [
   "/gallery1.jpg",
   "/gallery2.jpg",
@@ -41,6 +42,7 @@ const About = () => {
   const isInView8 = useInView(aboutRef8, { once: true });
   const isInView9 = useInView(aboutRef9, { once: true });
   const isInView10 = useInView(aboutRef10, { once: true });
+
   return (
     <div className="flex min-h-screen pt-28 w-full overflow-x-hidden">
       <div className="flex flex-col w-full">
@@ -141,8 +143,8 @@ const About = () => {
                   Our hotel has three categories of accommodation to choose
                   from, based on your preference and number of companions. Each
                   gives you a unique experience, be it family time in the
-                  suites’ living rooms, or a relaxing evening on our deluxe
-                  room’s large balconies.
+                  suites&apos; living rooms, or a relaxing evening on our deluxe
+                  room&apos;s large balconies.
                 </motion.p>
                 <motion.p
                   ref={aboutRef9}
@@ -168,7 +170,7 @@ const About = () => {
                 style={{ transformOrigin: "top" }}
                 className="flex-1"
               >
-                <img
+                <Image
                   src="/executive-inn-about.jpg"
                   alt="Executive Inn"
                   className="w-full h-auto"
@@ -322,22 +324,16 @@ const About = () => {
                 </a>
               </div>
             </div>
-            {isOpen && images.length > 0 && images[photoIndex] && (
+            {isOpen && (
               <Lightbox
-                mainSrc={images[photoIndex]}
-                nextSrc={images[(photoIndex + 1) % images.length]}
-                prevSrc={
-                  images[(photoIndex + images.length - 1) % images.length]
-                }
-                onCloseRequest={() => setIsOpen(false)}
-                onMovePrevRequest={() =>
-                  setPhotoIndex(
-                    (photoIndex + images.length - 1) % images.length
-                  )
-                }
-                onMoveNextRequest={() =>
-                  setPhotoIndex((photoIndex + 1) % images.length)
-                }
+                open={isOpen}
+                close={() => setIsOpen(false)}
+                slides={images.map(src => ({ src }))}
+                index={photoIndex}
+                controller={{
+                  closeOnBackdropClick: true,
+                  closeOnPullDown: true
+                }}
               />
             )}
           </div>
@@ -346,4 +342,5 @@ const About = () => {
     </div>
   );
 };
+
 export default About;
