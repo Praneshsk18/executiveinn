@@ -103,7 +103,14 @@ const Footer = () => {
                 >
                   <Instagram strokeWidth={1.4} className="h-full w-auto" />
                 </div>
-                <div className="flex w-10 items-center justify-center h-full rounded-full bg-amber-100 p-[7px] text-amber-900 hover:cursor-pointer hover:bg-white/30 hover:text-amber-50 transition-all duration-400 ease-in-out">
+                <div className="flex w-10 items-center justify-center h-full rounded-full bg-amber-100 p-[7px] text-amber-900 hover:cursor-pointer hover:bg-white/30 hover:text-amber-50 transition-all duration-400 ease-in-out 
+                onClick={() =>
+                    window.open(
+                      "https://www.facebook.com/HotelExecutiveInn",
+                      "_blank"
+                    )
+                  }  
+                " >
                   <Facebook strokeWidth={1.4} className="h-full w-auto" />
                 </div>
               </div>
