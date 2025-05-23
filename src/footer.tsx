@@ -7,7 +7,7 @@ const Footer = () => {
     <div className="md:h-170 h-full w-full bg-amber-900">
       <div className="mx-5 py-10 h-full">
         <div className="relative h-full">
-          <div className="absolute flex flex-wrap justify-between items-center lg:px-20 px-1 lg:-top-30 md:-top-25 -top-20 left-1/2 rounded-full transform -translate-x-1/2 md:w-[80%] w-full lg:h-40 md:h-30 h-20 bg-amber-50">
+          <div className="absolute flex flex-wrap justify-around items-center lg:px-20 px-1 lg:-top-30 md:-top-25 -top-20 left-1/2 rounded-full transform -translate-x-1/2 md:w-[80%] w-full lg:h-40 md:h-30 h-20 bg-amber-50">
             <div className="flex justify-center items-center h-full w-[20%] ">
               <div className="flex items-center h-[100%] w-[100%]">
                 <Link
@@ -15,7 +15,7 @@ const Footer = () => {
                   target="_blank"
                 >
                   <Image
-                    src="/logo1.png"
+                    src="/booking-com.png"
                     alt=""
                     width={1000}
                     height={1000}
@@ -31,7 +31,7 @@ const Footer = () => {
                   target="_blank"
                 >
                   <Image
-                    src="/logo2.png"
+                    src="/travel-guru.png"
                     alt=""
                     width={1000}
                     height={1000}
@@ -47,7 +47,7 @@ const Footer = () => {
                   target="_blank"
                 >
                   <Image
-                    src="/logo3.png"
+                    src="/go-ibibo.png"
                     alt=""
                     width={1000}
                     height={1000}
@@ -57,17 +57,17 @@ const Footer = () => {
               </div>
             </div>
             <div className="flex justify-center items-center h-full w-[20%] ">
-              <div className="flex items-center h-[100%] w-[100%]">
+              <div className="flex items-center justify-center h-[100%] w-[100%]">
                 <Link
                   href="https://www.makemytrip.com/hotels/hotel-details/?hotelId=201802011614261358&_uCurrency=INR&checkin=06212025&checkout=06262025&city=CTXPC&country=IN&lat=11.93976&lng=79.83448&locusId=RGPUDD&locusType=region&rank=1&reference=hotel&rf=directSearch&roomStayQualifier=1e0e&rsc=1e1e0e&searchText=Executive+Inn+-+A+boutique+Hotel&topHtlId=201802011614261358&type=hotel&mtkeys=-7354292052934374288&isPropSearch=T"
                   target="_blank"
                 >
                   <Image
-                    src="/logo4.png"
+                    src="/make-my-trip.png"
                     alt=""
                     width={1000}
                     height={1000}
-                    className="w-full h-auto"
+                    className="w-[70%] h-auto"
                   />
                 </Link>
               </div>

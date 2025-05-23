@@ -107,7 +107,7 @@ const scaleUp = {
 };
 
 export default function Home() {
-  const [expanded, setExpanded] = useState(null);
+  const [expanded, setExpanded] = useState<number | null>(null);
   const lastRef = useRef(null);
   const heroRef = useRef(null);
   const aboutRef = useRef(null);
@@ -126,7 +126,7 @@ export default function Home() {
     margin: "-100px",
   });
 
-  const toggleExpand = (index) => {
+  const toggleExpand = (index: number) => {
     setExpanded(expanded === index ? null : index);
   };
 
@@ -397,144 +397,158 @@ export default function Home() {
         </motion.p>
       </motion.div>
       <RestaurantHeroSection />
-      <motion.div
-        ref={attractionsRef}
-        initial="hidden"
-        animate={isAttractionsInView ? "visible" : "hidden"}
-        transition={{ delay: 0.5, duration: 1 }}
-        className="w-full relative"
-      >
-        <motion.div className="absolute inset-0 overflow-hidden">
-          <Image
-            src="/carousal1.jpg"
-            alt="Pondicherry attractions"
-            fill
-            className="object-cover"
-            priority
-          />
-        </motion.div>
-
-        <div
-          ref={lastRef}
-          className="relative flex lg:justify-end justify-center items-center min-h-[70vh] py-16"
+      <section id="tour">
+        <motion.div
+          ref={attractionsRef}
+          initial="hidden"
+          animate={isAttractionsInView ? "visible" : "hidden"}
+          transition={{ delay: 0.5, duration: 1 }}
+          className="w-full relative"
         >
-          <motion.div
-            className="w-full max-w-full lg:max-w-[60%] py-10 px-4 sm:px-6 lg:px-8"
-            initial={{ opacity: 0, y: 50 }}
-            animate={isLastInView ? { opacity: 1, y: 0 } : {}}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
+          <motion.div className="absolute inset-0 overflow-hidden">
+            <Image
+              src="/carousal1.jpg"
+              alt="Pondicherry attractions"
+              fill
+              className="object-cover"
+              priority
+            />
+          </motion.div>
+
+          <div
+            ref={lastRef}
+            className="relative flex lg:justify-end justify-center items-center min-h-[70vh] py-16"
           >
             <motion.div
-              className="bg-amber-100/90 rounded-xl p-6 sm:p-8 lg:p-10 shadow-xl"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              className="w-full max-w-full lg:max-w-[60%] py-10 px-4 sm:px-6 lg:px-8"
+              initial={{ opacity: 0, y: 50 }}
+              animate={isLastInView ? { opacity: 1, y: 0 } : {}}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
             >
               <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
+                className="bg-amber-100/90 rounded-xl p-6 sm:p-8 lg:p-10 shadow-xl"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <h2 className="text-2xl lg:text-4xl font-serif text-amber-900 mb-4">
-                  Not just a place to stay.
-                </h2>
-                <p className="font-serif text-gray-800 text-base lg:text-xl mb-8">
-                  Explore the surroundings of Pondicherry Executive Inn with
-                  this guide.
-                </p>
-              </motion.div>
-              <motion.div
-                className="space-y-3"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={{
-                  visible: {
-                    transition: {
-                      staggerChildren: 0.1,
-                      delayChildren: 0.3,
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                  <h2 className="text-2xl lg:text-4xl font-serif text-amber-900 mb-4">
+                    Not just a place to stay.
+                  </h2>
+                  <p className="font-serif text-gray-800 text-base lg:text-xl mb-8">
+                    Explore the surroundings of Pondicherry Executive Inn with
+                    this guide.
+                  </p>
+                </motion.div>
+                <motion.div
+                  className="space-y-3"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={{
+                    visible: {
+                      transition: {
+                        staggerChildren: 0.1,
+                        delayChildren: 0.3,
+                      },
                     },
-                  },
-                }}
-              >
-                {attractions.map((attraction, index) => (
-                  <motion.div
-                    key={index}
-                    variants={{
-                      hidden: { opacity: 0, y: 10 },
-                      visible: { opacity: 1, y: 0 },
-                    }}
-                    className="bg-amber-50 rounded-lg overflow-hidden border border-amber-200"
-                  >
-                    <motion.button
-                      onClick={() => toggleExpand(index)}
-                      className="w-full flex justify-between items-center px-4 py-3 sm:px-6 sm:py-4 text-left"
-                      whileHover={{
-                        backgroundColor: "rgba(180, 83, 9, 0.1)",
-                        cursor: "pointer",
+                  }}
+                >
+                  {attractions.map((attraction, index) => (
+                    <motion.div
+                      key={index}
+                      variants={{
+                        hidden: { opacity: 0, y: 10 },
+                        visible: { opacity: 1, y: 0 },
                       }}
-                      whileTap={{ backgroundColor: "rgba(180, 83, 9, 0.2)" }}
+                      className="bg-amber-50 rounded-lg overflow-hidden border border-amber-200"
                     >
-                      <div className="flex items-center">
-                        <motion.span
-                          className="w-3 h-3 bg-amber-900 rounded-full mr-3"
-                          initial={{ scale: 0 }}
-                          whileInView={{ scale: 1 }}
-                          transition={{ duration: 0.3, delay: index * 0.05 }}
-                        />
-                        <h3 className="font-serif text-amber-900 text-base sm:text-lg">
-                          {attraction.name}
-                        </h3>
-                      </div>
-                      <motion.span
-                        animate={{ rotate: expanded === index ? 45 : 0 }}
-                        className="text-amber-900 text-xl font-bold"
+                      <motion.button
+                        onClick={() => toggleExpand(index)}
+                        className="w-full flex justify-between items-center px-4 py-3 sm:px-6 sm:py-4 text-left"
+                        whileHover={{
+                          backgroundColor: "rgba(180, 83, 9, 0.1)",
+                          cursor: "pointer",
+                        }}
+                        whileTap={{ backgroundColor: "rgba(180, 83, 9, 0.2)" }}
                       >
-                        +
-                      </motion.span>
-                    </motion.button>
-
-                    <AnimatePresence>
-                      {expanded === index && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
-                          className="overflow-hidden"
+                        <div className="flex items-center">
+                          <motion.span
+                            className="w-3 h-3 bg-amber-900 rounded-full mr-3"
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
+                            transition={{ duration: 0.3, delay: index * 0.05 }}
+                          />
+                          <h3 className="font-serif text-amber-900 text-base sm:text-lg">
+                            {attraction.name}
+                          </h3>
+                        </div>
+                        <motion.span
+                          animate={{ rotate: expanded === index ? 45 : 0 }}
+                          className="text-amber-900 text-xl font-bold"
                         >
-                          <div className="px-4 sm:px-6 pb-4 sm:pb-6">
-                            <p className="font-serif text-gray-800 text-sm sm:text-base mb-4">
-                              {attraction.details}
-                            </p>
-                            {attraction.image && (
-                              <div className="mt-3">
-                                <Image
-                                  src={attraction.image}
-                                  alt={attraction.name}
-                                  width={400}
-                                  height={250}
-                                  className="w-full h-auto rounded-lg shadow-md"
-                                />
-                              </div>
-                            )}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.div>
-                ))}
+                          +
+                        </motion.span>
+                      </motion.button>
+
+                      <AnimatePresence>
+                        {expanded === index && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            className="overflow-hidden"
+                          >
+                            <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+                              <p className="font-serif text-gray-800 text-sm sm:text-base mb-4">
+                                {attraction.details}
+                              </p>
+                              {attraction.image && (
+                                <div className="mt-3">
+                                  <Image
+                                    src={attraction.image}
+                                    alt={attraction.name}
+                                    width={400}
+                                    height={250}
+                                    className="w-full h-auto rounded-lg shadow-md"
+                                  />
+                                </div>
+                              )}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  ))}
+                </motion.div>
               </motion.div>
             </motion.div>
-          </motion.div>
-        </div>
-      </motion.div>
+          </div>
+        </motion.div>
+      </section>
     </div>
   );
 }
 
-const ContactInfo = ({ icon, title, details, isPhone = false }) => (
+interface ContactInfoProps {
+  icon: React.ReactNode;
+  title: string;
+  details: string[];
+  isPhone?: boolean;
+}
+
+const ContactInfo = ({
+  icon,
+  title,
+  details,
+  isPhone = false,
+}: ContactInfoProps) => (
   <div className="flex w-full md:w-1/2 font-serif">
     {icon}
     <div className="tracking-wider">
@@ -556,7 +570,7 @@ const ImageCardsSection = () => {
       description:
         "Join us for an experience that will be nothing like anywhere you have stayed before.",
       buttonText: "About Us",
-      link: "/about",
+      link: "/about1",
     },
     {
       image: "/Pondicherry-Beach.jpg",
@@ -564,7 +578,7 @@ const ImageCardsSection = () => {
       description:
         "Reside in the heart of Pondicherry, surrounded by a variety of attractions.",
       buttonText: "Explore",
-      link: "/about",
+      link: "/#tour",
     },
   ];
 
@@ -657,7 +671,7 @@ const RestaurantHeroSection = () => (
           whileTap={{ scale: 0.95 }}
           className="btn font-semibold bg-amber-900/80 text-sm md:text-base px-6 py-3 mt-10"
         >
-          Explore Our Restaurant
+          <Link href="food_fun">Explore Our Restaurant</Link>
         </motion.button>
       </StyledWrapper2>
     </motion.div>

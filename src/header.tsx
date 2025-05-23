@@ -5,7 +5,7 @@ import { motion,AnimatePresence } from "framer-motion";
 import Link from "next/link";
 const items = [
   { name: "Home", href: "/" ,color:"border-amber-50"},
-  { name: "About Us", href: "/about" ,color:"border-amber-50"},
+  { name: "About Us", href: "/about1" ,color:"border-amber-50"},
   { name: "Book your Stay", href: "/bookyourstay" ,color:"border-amber-50"},
   { name: "Executive Deluxe Room", href: "/deluxe" ,color:"border-amber-50"},
   { name: "Executive Room", href: "/executive" ,color:"border-amber-50"},

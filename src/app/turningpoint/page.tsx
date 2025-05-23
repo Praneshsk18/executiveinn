@@ -1,112 +1,54 @@
 "use client";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { Dot } from "lucide-react";
-const TurningPoint = () => {
+
+const Deluxe = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="flex relative min-h-[110vh] h-screen w-full"
-    >
-      <Image
-        src="/turning-point.jpg"
-        alt="Turning Point"
-        width={1000}
-        height={1000}
-        className="object-cover w-full h-full"
-      />
-      <div className="absolute inset-0 h-full bg-gradient-to-bl from-amber-200/20 to-amber-100/20">
-        <div className="flex flex-row h-full w-full overflow-y-hidden">
-          <motion.div
-            initial={{ opacity: 0, x: "-100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-            className="flex flex-col font-serif text-amber-900 gap-y-3 px-[5%] lg:justify-center lg:pt-0 pt-30 md:w-[50%] w-full h-full md:bg-amber-100/80 bg-amber-100/60 md:border-r border-amber-900"
-          >
-            <motion.p
-              initial={{ opacity: 0, x: "-100%" }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
-              className="text-4xl"
-            >
-              Turning Point
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, x: "-100%" }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
-              className="text-2xl"
-            >
-              Make Every Occasion Unforgettable
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, x: "-100%" }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
-            >
-              Our elegant Event Hall is the perfect setting for weddings,
-              conferences, banquets, and special gatherings. With spacious
-              interiors, customizable seating, and state-of-the-art facilities,
-              we provide a refined backdrop for events of all sizes.
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, x: "-100%" }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.9 }}
-            >
-              Designed with style and functionality in mind, the hall features:
-            </motion.p>
-            <div className="flex flex-col gap-y-2">
-              <motion.div
-                initial={{ opacity: 0, x: "-100%" }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 1 }}
-                className="flex flex-row"
-              >
-                <Dot className="shrink-0"/>
-                Modern audio-visual equipment
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: "-100%" }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 1.15 }}
-                className="flex flex-row"
-              >
-                <Dot className="shrink-0"/>
-                Flexible stage and lighting setups
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: "-100%" }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 1.2 }}
-                className="flex flex-row"
-              >
-                <Dot className="shrink-0"/>
-                On-site event planning and catering services
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: "-100%" }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 1.25 }}
-                className="flex flex-row"
-              >
-                <Dot className="shrink-0"/>
-                Ideal for weddings, corporate meetings, parties & exhibitions
-              </motion.div>
-            </div>
-            <motion.p
-            initial={{ opacity: 0, x: "-100%" }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 1.35 }}
-            >
-              Let Executive Inn turn your vision into a memorable celebration.
-            </motion.p>
-          </motion.div>
+    <div className="flex relative flex-col items-center w-full min-h-[110vh] bg-amber-50">
+      <div className="absolute w-full h-[80vh] overflow-hidden">
+        <Image
+          src="/turning-point.jpg"
+          alt="Executive Deluxe Room"
+          width={2000}
+          height={1333}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="flex relative lg:top-90 top-60 lg:mb-120 mb-80 flex-col relative md:w-[80%] w-[95%] bg-white min-h-200 gap-y-4 md:p-8 p-3">
+        <p className="font-serif text-amber-800 md:text-[90px] text-5xl tracking-wider md:py-10 py-5">
+          Turning Point
+        </p>
+        <div className="flex flex-col w-full font-serif w-full h-auto">
+          <div className="flex flex-col w-full gap-y-8">
+            <p className="text-gray-700 md:text-base text-sm">
+              Host your events and manage your business meetings at our space.
+              The Turning Point has been a popular haunt for small gatherings of
+              up to 75 to 100 people right here on the property.
+            </p>
+            <p className="text-gray-700 md:text-base text-sm">
+              You are ensured smooth sailing with an uninterrupted wi-fi
+              connection and excellent in-house catering, to have you covered on
+              all fronts.
+            </p>
+          </div>
+          <div className="flex md:flex-row flex-col md:w-[50%] md:py-10 py-4 gap-y-5">
+            <Image
+              src="/turning-point1.jpg"
+              alt=""
+              width={1000}
+              height={1000}
+              className="px-5"
+            />
+            <Image
+              src="/turning-point2.jpg"
+              alt=""
+              width={1000}
+              height={1000}
+              className="px-5"
+            />
+          </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
-export default TurningPoint;
+export default Deluxe;
