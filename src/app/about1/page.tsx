@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import GalleryItem from "@/components/galleryitem";
 
 const images = [
   "/gallery1.jpg",
@@ -23,7 +24,7 @@ const images = [
 const About = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
-  const aboutRef1 = useRef(null); 
+  const aboutRef1 = useRef(null);
   const aboutRef3 = useRef(null);
   const aboutRef4 = useRef(null);
   const aboutRef5 = useRef(null);
@@ -194,39 +195,17 @@ const About = () => {
           </motion.p>
           <div className="w-full lg:px-20 md:px-6 px-3">
             <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 lg:gap-20 md:gap-10 gap-8 w-full">
-              {images.map((src, index) => {
-                const ref = useRef(null);
-                const isInView = useInView(ref, { once: true });
-                return (
-                  <motion.div
-                    ref={ref}
-                    initial={{ opacity: 0, scaleY: 0 }}
-                    animate={{
-                      opacity: isInView ? 1 : 0,
-                      scaleY: isInView ? 1 : 0,
-                    }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
-                    style={{ transformOrigin: "top" }}
-                    key={index}
-                    className="flex items-center justify-center h-auto"
-                  >
-                    <div className="w-full h-auto">
-                      <Image
-                        src={src}
-                        alt={`Gallery ${index + 1}`}
-                        className="w-full h-full object-cover cursor-pointer"
-                        width={1000}
-                        height={1000}
-                        unoptimized
-                        onClick={() => {
-                          setPhotoIndex(index);
-                          setIsOpen(true);
-                        }}
-                      />
-                    </div>
-                  </motion.div>
-                );
-              })}
+              {images.map((src, index) => (
+                <GalleryItem
+                  key={index}
+                  src={src}
+                  index={index}
+                  onClick={() => {
+                    setPhotoIndex(index);
+                    setIsOpen(true);
+                  }}
+                />
+              ))}
             </div>
             <div className="flex min-h-50 items-center mx-auto my-10">
               <div className="grid lg:grid-cols-5 font-serif md:grid-cols-3 sm:grid-cols-2 w-full justify-items-center items-center grid-cols-1">
@@ -328,11 +307,11 @@ const About = () => {
               <Lightbox
                 open={isOpen}
                 close={() => setIsOpen(false)}
-                slides={images.map(src => ({ src }))}
+                slides={images.map((src) => ({ src }))}
                 index={photoIndex}
                 controller={{
                   closeOnBackdropClick: true,
-                  closeOnPullDown: true
+                  closeOnPullDown: true,
                 }}
               />
             )}
