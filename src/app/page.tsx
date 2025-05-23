@@ -203,7 +203,7 @@ export default function Home() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="btn font-semibold text-sm md:text-base px-6 py-3"
+                  className="btn font-semibold text-sm md:text-base px-6 py-3 text-amber-800"
                 >
                   Explore Rooms
                 </motion.button>
@@ -214,7 +214,7 @@ export default function Home() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="btn font-semibold text-sm md:text-base px-6 py-3"
+                  className="btn font-semibold text-sm md:text-base px-6 py-3 text-amber-800"
                 >
                   Book Your Stay
                 </motion.button>
